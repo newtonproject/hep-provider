@@ -100,6 +100,8 @@ var bridge = {
 const REQUEST_PROFILE = "requestProfile";
 const REQUEST_PAY = "requestPay";
 const REQUEST_PROOF = "requestProof";
+const REQUEST_SIGN_MSG = "requestSignMessage";
+const REQUEST_SIGN_TRANSACTION = "requestSignTransaction";
 
 var hep = {};
 hep.auth = {};
@@ -119,5 +121,18 @@ hep.proof = {};
 hep.proof.submit = function(params, callback){
     bridge.call(REQUEST_PROOF, params, function (proof_info) {
         callback(proof_info);
+    })
+};
+
+hep.sign = {};
+hep.sign.message = function(params, callback){
+    bridge.call(REQUEST_SIGN_MSG, params, function (pay_info) {
+        callback(sign_msg_info);
+    });
+};
+
+hep.sign.transaction = function(params, callback){
+    bridge.call(REQUEST_SIGN_TRANSACTION, params, function (proof_info) {
+        callback(sign_transaction_info);
     })
 };
