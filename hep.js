@@ -126,13 +126,13 @@ hep.proof.submit = function(params, callback){
 
 hep.sign = {};
 hep.sign.message = function(params, callback){
-    bridge.call(REQUEST_SIGN_MSG, params, function (pay_info) {
+    bridge.call(REQUEST_SIGN_MSG, params, function (sign_msg_info) {
         callback(sign_msg_info);
     });
 };
 
 hep.sign.transaction = function(params, callback){
-    bridge.call(REQUEST_SIGN_TRANSACTION, params, function (proof_info) {
+    bridge.call(REQUEST_SIGN_TRANSACTION, params, function (sign_transaction_info) {
         callback(sign_transaction_info);
     })
 };
